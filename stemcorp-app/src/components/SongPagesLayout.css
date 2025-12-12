@@ -1,0 +1,72 @@
+.song-pages-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.song-info {
+    margin-top: 6rem;
+    align-items: center;
+    text-align: center;
+}
+
+.cover-image {
+    width: 20%;
+    height: auto;
+    object-fit: contain;
+}
+
+.song-text-info {
+    margin-top: 0rem;
+}
+
+.song-title {
+    margin: 0;     
+    font-size: 2.5rem;
+}
+
+.song-type {
+    margin: -0.5rem 0 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.platforms{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.main-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-section {
+    margin-top: 2rem;
+    width: 90%;
+    background-color: #292929;
+    border-radius: 30px;
+    padding: 1rem;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.platform-icon {
+    width: 30px;
+    height: 30px;
+}

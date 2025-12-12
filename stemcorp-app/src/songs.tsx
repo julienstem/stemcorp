@@ -1,24 +1,16 @@
 import './songs.css';
 import Song from './song';
-import SongsData from './songs.json';
-
-type SongData = {
-  title: string;
-  imageUrl: string;
-  type: string;
-};
+import { songsData } from './data/songsData';
 
 function SongsList() {
-  const songs: SongData[] = SongsData.songs;
 
   return (
     <div className="songs-list">
-      {songs.map((song) => (
+      {songsData.map((song) => (
         <Song
           key={song.title}
-          coverUrl={song.imageUrl}
+          coverUrl={song.coverUrl}
           title={song.title}
-          type={song.type}
         />
       ))}
     </div>

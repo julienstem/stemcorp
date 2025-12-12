@@ -15,7 +15,8 @@ body {
   position: fixed;
   width: 100%;
   height: 6rem;
-  background: #181818;
+  background: rgb(24, 24, 24);
+  background-color: rgba(24, 24, 24, 0.80);
   color: white;
   padding: 0.2rem 1rem;
   text-align: center;

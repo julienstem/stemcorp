@@ -3,12 +3,14 @@ import './song.css'
 type SongProps = {
     title: string;
     coverUrl: string;
-    type: string;
 };
 
-function Song( {title, coverUrl, type}: SongProps) {
+function Song( {title, coverUrl}: SongProps) {
+  const pageUrl = `/songs/${title}`;
   return (
-    <img src={coverUrl} alt={title} className="song-cover" id={type}/>
+    <a href={pageUrl} className="song-link">
+      <img src={coverUrl} alt={title} className="song-cover"/>
+    </a>
   )
 }
 

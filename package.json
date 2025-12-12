@@ -6,5 +6,8 @@
   "repository": "git@github.com:julienstem/stemcorp.git",
   "author": "julienstem <stempferjulien@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "path": "^0.12.7",
+    "react-router-dom": "^7.9.6"
+  }
 }
