@@ -6,13 +6,12 @@ function SongsList() {
 
   return (
     <div className="songs-list">
-      {songsData.map((song) => (
-        <Song
-          key={song.title}
-          coverUrl={song.coverUrl}
-          title={song.title}
-        />
-      ))}
+      {songsData.map((song) => {
+        if(song.available){
+          return <Song title={song.title} coverUrl={song.coverUrl} />;
+        }
+        return null;
+      })}
     </div>
   );
 }

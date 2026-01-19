@@ -14,4 +14,5 @@ export interface Song {
     platforms: Platforms;
     lyrics?: string;
     tracks?: string;
+    available: boolean;
 }

@@ -15,6 +15,7 @@ export const songsData: Song[] = [
             youtube: "https://www.youtube.com/watch?v=gBD0YUW_4NQ",
         },
         lyrics: await readLyrics("bag.txt"),
+        available: true,
     },
     {
         title: "Stemcorp",
@@ -28,6 +29,7 @@ export const songsData: Song[] = [
             youtube: "https://youtu.be/ly0ttXypX2c?si=cA7woaWH3ewrlKdH",
         },
         tracks: await readTracklist("stemcorp.txt"),
+        available: true,
     }
 ]
 

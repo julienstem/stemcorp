@@ -1,28 +1,38 @@
-* {
-  box-sizing: border-box;
-}
 
 body {
   margin: 0;
 }
 
-#root {
-  margin: 0;
-  padding: 0;
-}
-
 .header {
-  position: fixed;
   width: 100%;
-  height: 6rem;
-  background: rgb(24, 24, 24);
-  background-color: rgba(24, 24, 24, 0.80);
+  height: 5rem;
+  background-color: rgb(5, 5, 5);
   color: white;
-  padding: 0.2rem 1rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.spacer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#left-spacer {
+  position: absolute;
+  left: 1rem;
+}
+
+#right-spacer {
+  position: absolute;
+  right: 1rem;
+}
+
+#center-spacer {
+  margin: 0 auto;
 }
 
 #mainLogo {
@@ -31,4 +41,10 @@ body {
   width: auto;
   display: block;
   object-fit: contain;
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
 }
