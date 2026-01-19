@@ -2,7 +2,7 @@ import './songs.css';
 import Song from './song';
 import { songsData } from './data/songsData';
 
-function SongsList() {
+function Songs() {
 
   return (
     <div className="songs-list">
@@ -16,4 +16,4 @@ function SongsList() {
   );
 }
 
-export default SongsList;
+export default Songs;

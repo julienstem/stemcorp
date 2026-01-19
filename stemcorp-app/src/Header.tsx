@@ -16,7 +16,7 @@ export default function Header() {
                 </a>
             </div>
             <div id='right-spacer' className='spacer'>
-                <a href ="/songs" className='header-link' id='AllSongsLink'>Toutes les musiques</a>
+                <a href ="/all-songs" className='header-link' id='AllSongsLink'>Toutes les musiques</a>
             </div>
         </header>
     )

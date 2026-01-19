@@ -1,9 +1,10 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Header from './Header.tsx'
-import SongsList from './songs.tsx'
+import Songs from './songs.tsx'
 import SongPagesDetail from './components/SongPagesDetail.tsx'
 import { Footer } from './Footer.tsx'
+import SongsList from './components/SongsList.tsx'
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
         <Route path="/" element={
           <div className="app">
             <Header />
-            <SongsList />
+            <Songs />
             <Footer />
           </div>
         } />
@@ -21,6 +22,13 @@ function App() {
           <div className="song-page-detail-app">
             <Header />
             <SongPagesDetail />
+            <Footer />
+          </div>
+        } />
+        <Route path="/all-songs" element={
+          <div className="all-songs-app">
+            <Header />
+            <SongsList />
             <Footer />
           </div>
         } />

@@ -3,6 +3,8 @@ import type { Platforms } from "./platformsType";
 export const SongType = {
     SINGLE: "Single",
     ALBUM: "Album",
+    EP: "EP",
+    SONG_IN_PROJECT: "Song in Project",
 } as const;
 
 export type SongType = typeof SongType[keyof typeof SongType];
