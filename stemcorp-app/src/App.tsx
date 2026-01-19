@@ -1,10 +1,9 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import Header from './Header.tsx'
 import Songs from './songs.tsx'
 import SongPagesDetail from './components/SongPagesDetail.tsx'
-import { Footer } from './Footer.tsx'
 import SongsList from './components/SongsList.tsx'
+import Page from './components/Page.tsx'
 
 function App() {
 
@@ -12,25 +11,19 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={
-          <div className="app">
-            <Header />
+          <Page>
             <Songs />
-            <Footer />
-          </div>
+          </Page>
         } />
         <Route path="/songs/:title" element={
-          <div className="song-page-detail-app">
-            <Header />
+          <Page>
             <SongPagesDetail />
-            <Footer />
-          </div>
+          </Page>
         } />
         <Route path="/all-songs" element={
-          <div className="all-songs-app">
-            <Header />
+          <Page>
             <SongsList />
-            <Footer />
-          </div>
+          </Page>
         } />
         <Route path="/contact" element={<div>Contact Page</div>} />
       </Routes>
