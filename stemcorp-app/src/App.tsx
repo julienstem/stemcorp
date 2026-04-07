@@ -2,8 +2,9 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Songs from './songs.tsx'
 import SongPagesDetail from './components/SongPagesDetail.tsx'
-import SongsList from './components/SongsList.tsx'
+import SongListWithSelector from './components/SongsList.tsx'
 import Page from './components/Page.tsx'
+import SongsListWithSelector from './components/SongsList.tsx'
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
         } />
         <Route path="/all-songs" element={
           <Page>
-            <SongsList />
+            <SongsListWithSelector />
           </Page>
         } />
         <Route path="/contact" element={<div>Contact Page</div>} />
