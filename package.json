@@ -7,6 +7,7 @@
   "author": "julienstem <stempferjulien@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^25.5.2",
     "path": "^0.12.7",
     "react-router-dom": "^7.9.6"
   }

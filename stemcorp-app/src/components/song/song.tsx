@@ -8,9 +8,11 @@ type SongProps = {
 function Song( {title, coverUrl}: SongProps) {
   const pageUrl = `/songs/${title}`;
   return (
-    <a href={pageUrl} className="song-link">
-      <img src={coverUrl} alt={title} className="song-cover"/>
-    </a>
+    <div>
+      <a href={pageUrl} className="song-link" title={title}>
+        <img src={coverUrl} alt={title} className="song-cover"/>
+      </a>
+    </div>
   )
 }
 

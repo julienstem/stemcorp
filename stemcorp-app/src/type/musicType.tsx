@@ -1,20 +1,20 @@
 import type { Platforms } from "./platformsType";
 
-export const SongType = {
+export const MusicType = {
     SINGLE: "Single",
     ALBUM: "Album",
     EP: "EP",
-    SONG_IN_PROJECT: "Song in Project",
 } as const;
 
-export type SongType = typeof SongType[keyof typeof SongType];
+export type MusicType = typeof MusicType[keyof typeof MusicType];
 
-export interface Song {
+export interface Music {
     title: string;
     coverUrl: string;
-    type: SongType;
     platforms: Platforms;
+    type: MusicType;
+    releaseDate: string;
     lyrics?: string;
-    tracks?: string;
+    tracks?: string[];
     available: boolean;
 }

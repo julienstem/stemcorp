@@ -7,9 +7,12 @@
 }
 
 .songs-list-with-selector {
+  height: fit-content;
+  width: 100%;
   padding: 16px;
   display: flex;
   flex-direction: column;
+
   gap: 12px;
 }
 

@@ -1,10 +1,11 @@
 import './Header.css'
-import logo_big from './assets/stemcorp_logo_big.png'
-import { songsData } from './data/songsData';
+import logo_big from '../../assets/stemcorp_logo_big.png'
+import { useMusic } from '../../context/MusicContext';
 
 
 export default function Header() {
-    const lastestUrl = '/songs/' + songsData[0].title;
+    const latestMusic = useMusic().musics[0];
+    const lastestUrl = '/songs/' + latestMusic?.title;
     return (
         <header className="header">
             <div id='left-spacer' className='spacer'>

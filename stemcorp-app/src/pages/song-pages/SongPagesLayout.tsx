@@ -1,9 +1,9 @@
 import "./SongPagesLayout.css";
 import React, { type JSX } from "react";
-import type {Song} from "../type/songType";
+import type {Music} from "../type/musicType";
 
 interface SongPagesLayoutProps {
-    song: Song;
+    song: Music;
 }
 
 export const SongPagesLayout: React.FC<SongPagesLayoutProps> = ({song}) => {
@@ -39,7 +39,7 @@ interface LyricsDivProps {
 }
 
 interface TrackListDivProps {
-    tracks: string;
+    tracks: string[];
 }
 
 const LyricsDiv: React.FC<LyricsDivProps> = ({ lyrics }) => {
@@ -53,16 +53,20 @@ const LyricsDiv: React.FC<LyricsDivProps> = ({ lyrics }) => {
 
 const TrackListDiv: React.FC<TrackListDivProps> = ({ tracks }) => {
     return (
-        <div>
+        <div className="track-list-container">
             <h2>Track List</h2>
-            <pre className="tacklist">{tracks}</pre>
+            <div className="track-list">
+                {tracks.map((track, index) => (
+                    <p key={index} className="track">{track}</p>
+                ))}
+            </div>
         </div>
     );
 }
 
-const renderBottomSection = (song: Song): JSX.Element | null => {
+const renderBottomSection = (song: Music): JSX.Element | null => {
     if (song.type === "Album") {
-        const albumSong = song as Song & { tracks: string[] };
+        const albumSong = song as Music & { tracks: string[] };
         return <TrackListDiv tracks={albumSong.tracks} />;
     } else if (song.lyrics) {
         return <LyricsDiv lyrics={song.lyrics} />;

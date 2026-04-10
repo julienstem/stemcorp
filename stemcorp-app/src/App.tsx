@@ -1,34 +1,31 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import Songs from './songs.tsx'
-import SongPagesDetail from './components/SongPagesDetail.tsx'
-import SongListWithSelector from './components/SongsList.tsx'
-import Page from './components/Page.tsx'
-import SongsListWithSelector from './components/SongsList.tsx'
+import SongsPage from './pages/songs-home-page/songs-home-page.tsx'
+import SongPagesDetail from './pages/song-pages/SongPagesDetail.tsx'
+import SongsListWithSelector from './pages/all-songs/SongsList.tsx'
+import Header from './components/header/Header.tsx'
+import { Footer } from './components/footer/Footer.tsx'
 
 function App() {
 
   return (
     <>
+    <main>
+      <Header />
       <Routes>
         <Route path="/" element={
-          <Page>
-            <Songs />
-          </Page>
+          <SongsPage />
         } />
         <Route path="/songs/:title" element={
-          <Page>
             <SongPagesDetail />
-          </Page>
         } />
         <Route path="/all-songs" element={
-          <Page>
             <SongsListWithSelector />
-          </Page>
         } />
         <Route path="/contact" element={<div>Contact Page</div>} />
       </Routes>
-
+      <Footer />
+    </main>
     </>
   )
 }
