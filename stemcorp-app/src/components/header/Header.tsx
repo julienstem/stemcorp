@@ -23,15 +23,15 @@ export default function Header() {
                     <button className="close-btn" onClick={toggleMenu}><IoMdClose /></button>
 
                     <nav className="side-nav">
-                        <a href={`/songs/${latestRelease?.title}`} ><span className="lastest-release-link">Dernière sortie</span></a>
-                        <a href="/">Accueil</a>
-                        <a href="/all-songs">Tout les titres</a>
-                        <a href="/contact">Contact</a>
+                        <a href={`/stemcorp/songs/${latestRelease?.title}`} ><span className="lastest-release-link">Dernière sortie</span></a>
+                        <a href="/stemcorp/">Accueil</a>
+                        <a href="/stemcorp/all-songs">Tout les titres</a>
+                        <a href="/stemcorp/contact">Contact</a>
                     </nav>
                 </div>
             </div>
             <div id='center-spacer' className='spacer'>
-                <a href="/" className="main-logo-link">
+                <a href="/stemcorp/" className="main-logo-link">
                     <img src={logo_big} alt="Big stemcorp logo" id='mainLogo'/>
                 </a>
             </div>

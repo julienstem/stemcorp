@@ -7,7 +7,7 @@ function SongCard({
 }) {
   return (
     <a
-      href={`/songs/${encodeURIComponent(song.title)}`}
+      href={`/stemcorp/songs/${encodeURIComponent(song.title)}`}
       className="song-card"
     >
       <div className="song-cover-wrapper">
