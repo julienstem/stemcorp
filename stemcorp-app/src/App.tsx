@@ -1,6 +1,5 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import { Analytics } from '@vercel/analytics/react'
 import SongsPage from './pages/songs-home-page/songs-home-page.tsx'
 import SongPagesDetail from './pages/song-pages/SongPagesDetail.tsx'
 import SongsListWithSelector from './pages/all-songs/SongsList.tsx'
