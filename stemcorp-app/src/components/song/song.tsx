@@ -6,7 +6,7 @@ type SongProps = {
 };
 
 function Song( {title, coverUrl}: SongProps) {
-  const pageUrl = `/songs/${title.toLowerCase()}`;
+  const pageUrl = `/stemcorp/songs/${title.toLowerCase()}`;
   return (
     <div>
       <a href={pageUrl} className="song-link" title={title}>
