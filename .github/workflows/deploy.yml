@@ -18,10 +18,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'yarn' # On utilise le cache Yarn ici
+          cache: "yarn" # On utilise le cache Yarn ici
 
       - name: Install and Build 🏗️
         run: |
+          cd stemcorp-app
           yarn install --frozen-lockfile
           yarn build
           # On génère le 404.html à partir du build propre de Vite
