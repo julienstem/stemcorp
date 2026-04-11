@@ -1,6 +1,6 @@
 import "./SongPagesLayout.css";
 import React, { type JSX } from "react";
-import type {Music} from "../type/musicType";
+import type {Music} from "../../type/musicType";
 
 interface SongPagesLayoutProps {
     song: Music;
