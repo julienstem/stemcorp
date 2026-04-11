@@ -8,7 +8,7 @@ export default function SongPagesDetail() {
   const { title } = useParams<{ title: string }>();
 
   const musicContext = useMusic();
-  const song: Music | undefined = musicContext.musics.find(m => m.title === title);
+  const song: Music | undefined = musicContext.musics.find(m => m.title.toLowerCase() === title);
 
   if (!song) {
     return <div className="song-not-found">Song not found</div>;

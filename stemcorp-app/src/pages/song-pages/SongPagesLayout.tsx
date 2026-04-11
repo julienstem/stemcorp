@@ -1,12 +1,25 @@
 import "./SongPagesLayout.css";
 import React, { type JSX } from "react";
-import type {Music} from "../type/musicType";
+import type {Music} from "../../type/musicType";
+import { FaSpotify } from "react-icons/fa";
+import { BsAppleMusic } from "react-icons/bs";
+import { FaDeezer } from "react-icons/fa";
+import { SiYoutubemusic } from "react-icons/si";
+import { FaSoundcloud } from "react-icons/fa";
 
 interface SongPagesLayoutProps {
     song: Music;
+    
 }
 
 export const SongPagesLayout: React.FC<SongPagesLayoutProps> = ({song}) => {
+    const platformIcons: { [key: string]: JSX.Element } = {
+        "spotify": <FaSpotify className="platform-icon"/>,
+        "applemusic": <BsAppleMusic className="platform-icon" />,
+        "deezer": <FaDeezer className="platform-icon" />,
+        "youtube": <SiYoutubemusic className="platform-icon" />,
+        "soundcloud": <FaSoundcloud className="platform-icon" />
+    };
     return (
         <div className="song-pages-layout">
             <div className="main-data">
@@ -22,7 +35,7 @@ export const SongPagesLayout: React.FC<SongPagesLayoutProps> = ({song}) => {
                 <div className="platforms">
                     {Object.entries(song.platforms).map(([platform, url]) => (
                         <a key={platform} href={url} target="_blank" rel="noopener noreferrer" className="platform-link">
-                            <img src={`/distro_logo/${platform}.png`} alt={platform} className="platform-icon" />
+                            {platformIcons[platform.toLowerCase()] || platform}
                         </a>
                     ))}
                 </div>
