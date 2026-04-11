@@ -26,6 +26,7 @@ export default function Header() {
                         <a href={`/songs/${latestRelease?.title}`} ><span className="lastest-release-link">Dernière sortie</span></a>
                         <a href="/">Accueil</a>
                         <a href="/all-songs">Tout les titres</a>
+                        <a href="/contact">Contact</a>
                     </nav>
                 </div>
             </div>
