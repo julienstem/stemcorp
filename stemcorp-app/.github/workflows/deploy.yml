@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn' # On utilise le cache Yarn ici
+
+      - name: Install and Build 🏗️
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
+          # On génère le 404.html à partir du build propre de Vite
+          cp dist/index.html dist/404.html
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages

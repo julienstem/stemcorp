@@ -1,7 +1,5 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/react'
 import SongsPage from './pages/songs-home-page/songs-home-page.tsx'
 import SongPagesDetail from './pages/song-pages/SongPagesDetail.tsx'
 import SongsListWithSelector from './pages/all-songs/SongsList.tsx'
@@ -16,21 +14,19 @@ function App() {
     <main>
       <Header />
       <Routes>
-        <Route path="/" element={
+        <Route path="/stemcorp/" element={
           <SongsPage />
         } />
-        <Route path="/songs/:title" element={
+        <Route path="/stemcorp/songs/:title" element={
             <SongPagesDetail />
         } />
-        <Route path="/all-songs" element={
+        <Route path="/stemcorp/all-songs" element={
             <SongsListWithSelector />
         } />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/stemcorp/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </main>
-    <Analytics />
-    <SpeedInsights />
     </>
   )
 }
