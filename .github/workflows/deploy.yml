@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: 20
           cache: "yarn" # On utilise le cache Yarn ici
+          cache-dependency-path: stemcorp-app/yarn.lock
 
       - name: Install and Build 🏗️
         run: |
@@ -31,5 +32,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: stemcorp-app/dist
           branch: gh-pages
