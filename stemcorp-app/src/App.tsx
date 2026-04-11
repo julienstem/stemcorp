@@ -28,6 +28,7 @@ function App() {
       <Footer />
     </main>
     <Analytics />
+    <SpeedInsights />
     </>
   )
 }
