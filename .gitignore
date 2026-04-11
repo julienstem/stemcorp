@@ -417,6 +417,4 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-*.lock
-package-lock.json
 
