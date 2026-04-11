@@ -1,0 +1,50 @@
+.songs-grid {
+  position:relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top:6px;
+}
+
+.songs-list-with-selector {
+  height: fit-content;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.type-selector {
+  position:relative;
+  align-self: flex-start;
+  display: flex;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(66, 66, 66);
+  width : 100%;
+}
+
+.type-selector button {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: white;
+
+  border-bottom: 2px solid transparent;
+}
+
+.type-selector button:hover {
+  opacity: 0.8;
+}
+
+.type-selector button.active {
+  border-bottom: 2px solid white;
+}
+
+.type-selector button {
+  transition: border-bottom 0.2s ease, opacity 0.2s ease;
+}
