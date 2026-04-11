@@ -23,7 +23,7 @@ export default function Header() {
                     <button className="close-btn" onClick={toggleMenu}><IoMdClose /></button>
 
                     <nav className="side-nav">
-                        <a href={`/stemcorp/songs/${latestRelease?.title}`} ><span className="lastest-release-link">Dernière sortie</span></a>
+                        <a href={`/stemcorp/songs/${latestRelease?.title.toLocaleLowerCase()}`} ><span className="lastest-release-link">Dernière sortie</span></a>
                         <a href="/stemcorp/">Accueil</a>
                         <a href="/stemcorp/all-songs">Tout les titres</a>
                         <a href="/stemcorp/contact">Contact</a>
