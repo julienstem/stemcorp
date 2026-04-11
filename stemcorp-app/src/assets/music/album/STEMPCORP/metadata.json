@@ -1,9 +1,9 @@
 {
     "platforms": {
         "spotify": "https://open.spotify.com/album/1QZLzHZ6lOy8qINnsrARnD",
-        "appleMusic": "https://music.apple.com/fr/album/stemcorp/1755878764",
+        "appleMusic": "https://music.apple.com/fr/album/1755878764",
         "deezer": "https://www.deezer.com/fr/album/611660222",
-        "soundcloud": "https://soundcloud.com/user-146029035/stemcorp",
+        "soundcloud": "https://soundcloud.com/user-146029035",
         "youtube": "https://youtu.be/ly0ttXypX2c?si=cA7woaWH3ewrlKdH"
     },
     "releaseDate": "2024-08-23"
