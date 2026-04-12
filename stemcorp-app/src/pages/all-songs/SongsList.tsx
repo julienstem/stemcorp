@@ -26,6 +26,10 @@ function SongsList({ currentType }: { currentType: SelectedType }) {
     ? musics
     : musics.filter(m => m.type === currentType);
 
+  if(filteredMusics.length === 0) {
+    return <div className="no-songs">Aucun titre trouvé.</div>;
+  }
+
   return (
     <div className="songs-grid">
       {filteredMusics.map((music) => (
@@ -47,7 +51,7 @@ function TypeSelector({ value, onChange }: TypeSelectorProps) {
         className={value === SelectedType.All ? 'active' : ''}
         onClick={() => onChange(SelectedType.All)}
       >
-        All
+        Tout
       </button>
 
       <button

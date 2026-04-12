@@ -25,7 +25,7 @@ export default function Header() {
                     <nav className="side-nav">
                         <a href={`/stemcorp/songs/${latestRelease?.title.toLocaleLowerCase()}`} ><span className="lastest-release-link">Dernière sortie</span></a>
                         <a href="/stemcorp/">Accueil</a>
-                        <a href="/stemcorp/all-songs">Tout les titres</a>
+                        <a href="/stemcorp/all-songs">Tous les titres</a>
                         <a href="/stemcorp/contact">Contact</a>
                     </nav>
                 </div>
@@ -34,6 +34,8 @@ export default function Header() {
                 <a href="/stemcorp/" className="main-logo-link">
                     <img src={logo_big} alt="Big stemcorp logo" id='mainLogo'/>
                 </a>
+            </div>
+            <div id='right-spacer' className='spacer'>
             </div>
         </header>
     )
