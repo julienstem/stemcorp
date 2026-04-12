@@ -6,12 +6,9 @@
   text-decoration: none;
   color: inherit;
 
-  width: 200px;
-}
+  width: 180px;
+  height: auto;
 
-.song-cover-wrapper {
-  width: 200px;
-  height: 200px;
 }
 
 .song-cover {

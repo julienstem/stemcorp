@@ -47,7 +47,7 @@ async function MusicLoader(): Promise<Music[]> {
     musicList.push({
       title: projectName,
       coverUrl,
-      tracks: songs,
+      tracks: songs.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })),
       type,
       platforms: data.platforms || {},
       available: true,
