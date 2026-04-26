@@ -14,7 +14,7 @@ export interface Music {
     platforms: Platforms;
     type: MusicType;
     releaseDate: string;
-    lyrics?: string;
+    lyrics?: string[];
     tracks?: string[];
     available: boolean;
 }

@@ -8,10 +8,12 @@ async function MusicLoader(): Promise<Music[]> {
   const songsDir = import.meta.glob("../assets/music/**/songs/*.flac", { eager: true, as: "url" });
   const coverDir = import.meta.glob("../assets/music/**/cover/*", { eager: true, as: "url" });
   const metadataFiles = import.meta.glob("../assets/music/**/metadata.json", { eager: true });
+  const lyricsFiles = import.meta.glob("../assets/music/**/lyrics/*.txt", { eager: true, as: "raw" });
 
   const songsMap = new Map<string, string[]>();
   const coverMap = new Map<string, string>();
   const typeMap = new Map<string, MusicType>();
+  const lyricsMap = new Map<string, string[]>();
 
   for (const path in songsDir) {
     const parts = path.split("/");
@@ -34,10 +36,19 @@ async function MusicLoader(): Promise<Music[]> {
     }
   }
 
+  for (const path in lyricsFiles) {
+    const projectName = path.split("/")[4];
+    if (!lyricsMap.has(projectName)) {
+      lyricsMap.set(projectName, []);
+    }
+    lyricsMap.get(projectName)?.push(lyricsFiles[path] as string);
+  }
+
   for (const projectName of songsMap.keys()) {
     const songs = songsMap.get(projectName) || [];
     const coverUrl = coverMap.get(projectName) || '';
     const type = typeMap.get(projectName) || MusicType.SINGLE;
+    const lyrics = lyricsMap.get(projectName) || [];
 
     const metaPath = Object.keys(metadataFiles).find(path => path.includes(`/${projectName}/`));
     const metaContent: any = metaPath ? metadataFiles[metaPath] : {};
@@ -49,6 +60,7 @@ async function MusicLoader(): Promise<Music[]> {
       coverUrl,
       tracks: songs.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })),
       type,
+      lyrics,
       platforms: data.platforms || {},
       available: true,
       releaseDate: data.releaseDate || '2000-01-01',

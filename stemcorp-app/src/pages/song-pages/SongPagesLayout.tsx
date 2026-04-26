@@ -84,5 +84,8 @@ const renderBottomSection = (song: Music): JSX.Element | null => {
     } else if (song.lyrics) {
         return <LyricsDiv lyrics={song.lyrics} />;
     }
+    else {
+        return <p className="no-lyrics">Pas de paroles disponibles.</p>;
+    }
     return null;
 }

@@ -72,6 +72,15 @@
     background-color: #292929;
     border-radius: 30px;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.no-lyrics {
+    font-style: italic;
+    color: #888;
 }
 
 h2 {
