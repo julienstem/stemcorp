@@ -2,31 +2,41 @@ import "./SongsList.css";
 
 import SongCard from "../../components/song-card/SongCard";
 import { MusicType } from "../../type/musicType";
-import { useState } from 'react';
+import { useState } from "react";
 import { useMusic } from "../../context/MusicContext";
 
 const SelectedType = {
   All: "All",
   Album: MusicType.ALBUM,
   Single: MusicType.SINGLE,
-  EP: MusicType.EP
-}
+  EP: MusicType.EP,
+};
 
-export type SelectedType =
-  typeof SelectedType[keyof typeof SelectedType];
+export type SelectedType = (typeof SelectedType)[keyof typeof SelectedType];
 
 function SongsList({ currentType }: { currentType: SelectedType }) {
   const { loading, musics } = useMusic();
 
-  if(loading) {
+  if (loading) {
     return <div className="loading">Loading...</div>;
   }
 
-  const filteredMusics = currentType === SelectedType.All
-    ? musics
-    : musics.filter(m => m.type === currentType);
+  const filteredMusics =
+    currentType === SelectedType.All
+      ? Array.from(musics.values())
+          .flat()
+          .sort((a, b) => {
+            const dateB = b?.releaseDate
+              ? new Date(b.releaseDate).getTime()
+              : 0;
+            const dateA = a?.releaseDate
+              ? new Date(a.releaseDate).getTime()
+              : 0;
+            return dateB - dateA;
+          })
+      : musics.get(currentType as unknown as MusicType) || [];
 
-  if(filteredMusics.length === 0) {
+  if (filteredMusics.length === 0) {
     return <div className="no-songs">Aucun titre trouvé.</div>;
   }
 
@@ -48,28 +58,28 @@ function TypeSelector({ value, onChange }: TypeSelectorProps) {
   return (
     <div className="type-selector">
       <button
-        className={value === SelectedType.All ? 'active' : ''}
+        className={value === SelectedType.All ? "active" : ""}
         onClick={() => onChange(SelectedType.All)}
       >
         Tout
       </button>
 
       <button
-        className={value === SelectedType.Album ? 'active' : ''}
+        className={value === SelectedType.Album ? "active" : ""}
         onClick={() => onChange(SelectedType.Album)}
       >
         Album
       </button>
 
       <button
-        className={value === SelectedType.Single ? 'active' : ''}
+        className={value === SelectedType.Single ? "active" : ""}
         onClick={() => onChange(SelectedType.Single)}
       >
         Single
       </button>
 
       <button
-        className={value === SelectedType.EP ? 'active' : ''}
+        className={value === SelectedType.EP ? "active" : ""}
         onClick={() => onChange(SelectedType.EP)}
       >
         EP
@@ -80,17 +90,13 @@ function TypeSelector({ value, onChange }: TypeSelectorProps) {
 
 export default function SongsListWithSelector() {
   const [currentType, setCurrentType] = useState<SelectedType>(
-    SelectedType.All
+    SelectedType.All,
   );
 
   return (
     <div className="songs-list-with-selector">
-      <TypeSelector
-        value={currentType}
-        onChange={setCurrentType}
-      />
+      <TypeSelector value={currentType} onChange={setCurrentType} />
       <SongsList currentType={currentType} />
     </div>
   );
 }
-

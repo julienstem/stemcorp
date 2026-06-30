@@ -1,19 +1,22 @@
-import './song.css'
+import type { MusicType } from "../../type/musicType";
+import getSongUrl from "../../utils/urlManager";
+import "./song.css";
 
 type SongProps = {
-    title: string;
-    coverUrl: string;
+  title: string;
+  coverUrl: string;
+  type: MusicType;
 };
 
-function Song( {title, coverUrl}: SongProps) {
-  const pageUrl = `/stemcorp/songs/${title.toLowerCase()}`;
+function Song({ title, coverUrl, type }: SongProps) {
+  const pageUrl = getSongUrl(title, type);
   return (
     <div>
       <a href={pageUrl} className="song-link" title={title}>
-        <img src={coverUrl} alt={title} className="song-cover"/>
+        <img src={coverUrl} alt={title} className="song-cover" />
       </a>
     </div>
-  )
+  );
 }
 
-export default Song
+export default Song;

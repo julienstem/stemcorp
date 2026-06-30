@@ -1,21 +1,34 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import type { Music } from "../type/musicType";
+import { MusicType, type Music } from "../type/musicType";
 import MusicLoader from "../utils/songLoader";
 
 type MusicContextType = {
-  musics: Music[];
+  musics: Map<MusicType, Music[]>;
   loading: boolean;
 };
 
 const MusicContext = createContext<MusicContextType | null>(null);
 
 export function MusicProvider({ children }: { children: React.ReactNode }) {
-  const [musics, setMusics] = useState<Music[]>([]);
+  const [musics, setMusics] = useState<Map<MusicType, Music[]>>(
+    new Map([
+      [MusicType.ALBUM, []],
+      [MusicType.EP, []],
+      [MusicType.SINGLE, []],
+    ]),
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     MusicLoader().then((data) => {
-      setMusics(data);
+      console.log(data);
+      const newMusicMap = new Map<MusicType, Music[]>(musics);
+      data.forEach((music) => {
+        const currentArray = newMusicMap.get(music.type) || [];
+        newMusicMap.set(music.type, [...currentArray, music]);
+      });
+      setMusics(newMusicMap);
       setLoading(false);
     });
   }, []);
