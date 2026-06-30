@@ -1,11 +1,13 @@
 import "./SongPagesLayout.css";
 import React, { type JSX } from "react";
-import type { Music } from "../../type/musicType";
+import { MusicType, type Music } from "../../type/musicType";
 import { FaSpotify } from "react-icons/fa";
 import { BsAppleMusic } from "react-icons/bs";
 import { FaDeezer } from "react-icons/fa";
 import { SiYoutubemusic } from "react-icons/si";
 import { FaSoundcloud } from "react-icons/fa";
+import getSongUrl from "../../utils/urlManager";
+import { formatTrackName } from "../../utils/formatter";
 
 interface SongPagesLayoutProps {
   song: Music;
@@ -55,11 +57,11 @@ export const SongPagesLayout: React.FC<SongPagesLayoutProps> = ({ song }) => {
 };
 
 interface LyricsDivProps {
-  lyrics: string[];
+  lyrics: string;
 }
 
 interface TrackListDivProps {
-  tracks: string[];
+  parent: Music;
 }
 
 const LyricsDiv: React.FC<LyricsDivProps> = ({ lyrics }) => {
@@ -71,27 +73,41 @@ const LyricsDiv: React.FC<LyricsDivProps> = ({ lyrics }) => {
   );
 };
 
-const TrackListDiv: React.FC<TrackListDivProps> = ({ tracks }) => {
+const TrackListDiv: React.FC<TrackListDivProps> = ({ parent }) => {
+  const tracks = parent.tracks.map((track) => {
+    return track.name;
+  });
   return (
     <div className="track-list-container">
       <h2>Track List</h2>
       <div className="track-list">
-        {tracks.map((track, index) => (
-          <p key={index} className="track">
-            {track}
-          </p>
-        ))}
+        {tracks.map((track, index) => {
+          track = formatTrackName(track);
+          return (
+            <a
+              href={getSongUrl(
+                track,
+                MusicType.SINGLE,
+                parent.title,
+                parent.type,
+              )}
+              key={index}
+              className="track"
+            >
+              {track}
+            </a>
+          );
+        })}
       </div>
     </div>
   );
 };
 
 const renderBottomSection = (song: Music): JSX.Element | null => {
-  if (song.type === "Album") {
-    const albumSong = song as Music & { tracks: string[] };
-    return <TrackListDiv tracks={albumSong.tracks} />;
-  } else if (song.lyrics) {
-    return <LyricsDiv lyrics={song.lyrics} />;
+  if (song.type !== "Single") {
+    return <TrackListDiv parent={song} />;
+  } else if (song.tracks[0].lyrics) {
+    return <LyricsDiv lyrics={song.tracks[0].lyrics} />;
   } else {
     return <p className="no-lyrics">Pas de paroles disponibles.</p>;
   }

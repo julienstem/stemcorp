@@ -1,7 +1,16 @@
 .song-pages-detail {
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+}
+
+.song-not-found {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
