@@ -66,7 +66,7 @@ interface TrackListDivProps {
 
 const LyricsDiv: React.FC<LyricsDivProps> = ({ lyrics }) => {
   return (
-    <div>
+    <div className="lyrics-container">
       <h2>Lyrics</h2>
       <pre className="lyrics">{lyrics}</pre>
     </div>
