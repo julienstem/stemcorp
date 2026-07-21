@@ -13,16 +13,13 @@ function App() {
       <main>
         <Header />
         <Routes>
-          <Route path="/stemcorp/" element={<SongsPage />} />
+          <Route path="./" element={<SongsPage />} />
           <Route
-            path="/stemcorp/songs/:parentType?/:parentTitle?/:type/:title"
+            path="/songs/:parentType?/:parentTitle?/:type/:title"
             element={<SongPagesDetail />}
           />
-          <Route
-            path="/stemcorp/all-songs"
-            element={<SongsListWithSelector />}
-          />
-          <Route path="/stemcorp/contact" element={<ContactPage />} />
+          <Route path="/all-songs" element={<SongsListWithSelector />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <Footer />
       </main>
