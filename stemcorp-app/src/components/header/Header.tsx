@@ -57,14 +57,14 @@ export default function Header() {
             >
               <span className="lastest-release-link">Dernière sortie</span>
             </a>
-            <a href="/stemcorp/">Accueil</a>
-            <a href="/stemcorp/all-songs">Tous les titres</a>
-            <a href="/stemcorp/contact">Contact</a>
+            <a href="/">Accueil</a>
+            <a href="/all-songs">Tous les titres</a>
+            <a href="/contact">Contact</a>
           </nav>
         </div>
       </div>
       <div id="center-spacer" className="spacer">
-        <a href="/stemcorp/" className="main-logo-link">
+        <a href="/" className="main-logo-link">
           <img src={logo_big} alt="Big stemcorp logo" id="mainLogo" />
         </a>
       </div>
