@@ -6,6 +6,7 @@ import { IoMdClose } from "react-icons/io";
 import { useMusic } from "../../context/MusicContext";
 import { MusicType } from "../../type/musicType";
 import getSongUrl from "../../utils/urlManager";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,24 +50,24 @@ export default function Header() {
           </button>
 
           <nav className="side-nav">
-            <a
-              href={getSongUrl(
+            <Link
+              to={getSongUrl(
                 latestRelease?.title || "",
                 latestRelease?.type || MusicType.ALBUM,
               )}
             >
               <span className="lastest-release-link">Dernière sortie</span>
-            </a>
-            <a href="/">Accueil</a>
-            <a href="/all-songs">Tous les titres</a>
-            <a href="/contact">Contact</a>
+            </Link>
+            <Link to="/">Accueil</Link>
+            <Link to="/all-songs">Tous les titres</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
         </div>
       </div>
       <div id="center-spacer" className="spacer">
-        <a href="/" className="main-logo-link">
+        <Link to="/" className="main-logo-link">
           <img src={logo_big} alt="Big stemcorp logo" id="mainLogo" />
-        </a>
+        </Link>
       </div>
       <div id="right-spacer" className="spacer"></div>
     </header>
