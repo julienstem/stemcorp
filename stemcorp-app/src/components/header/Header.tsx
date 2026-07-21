@@ -12,6 +12,14 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const music = useMusic().musics;
 
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   const findLatestRelease = () => {
     if (!music) return null;
 
@@ -35,17 +43,27 @@ export default function Header() {
 
   const latestRelease = findLatestRelease();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
   return (
     <header className="header">
+      {isOpen && (
+        <div className="menu-backdrop" onClick={() => setIsOpen(false)} />
+      )}
+
       <div id="left-spacer" className="spacer">
-        <button className="close-btn" onClick={toggleMenu}>
+        <button
+          className="close-btn"
+          onClick={toggleMenu}
+          aria-label="Ouvrir le menu"
+        >
           <GiHamburgerMenu className="icon" />
         </button>
+
         <div className={`side-menu ${isOpen ? "open" : ""}`}>
-          <button className="close-btn" onClick={toggleMenu}>
+          <button
+            className="close-btn"
+            onClick={toggleMenu}
+            aria-label="Fermer le menu"
+          >
             <IoMdClose />
           </button>
 
@@ -55,20 +73,29 @@ export default function Header() {
                 latestRelease?.title || "",
                 latestRelease?.type || MusicType.ALBUM,
               )}
+              onClick={handleLinkClick}
             >
               <span className="lastest-release-link">Dernière sortie</span>
             </Link>
-            <Link to="/">Accueil</Link>
-            <Link to="/all-songs">Tous les titres</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/" onClick={handleLinkClick}>
+              Accueil
+            </Link>
+            <Link to="/all-songs" onClick={handleLinkClick}>
+              Tous les titres
+            </Link>
+            <Link to="/contact" onClick={handleLinkClick}>
+              Contact
+            </Link>
           </nav>
         </div>
       </div>
+
       <div id="center-spacer" className="spacer">
         <Link to="/" className="main-logo-link">
           <img src={logo_big} alt="Big stemcorp logo" id="mainLogo" />
         </Link>
       </div>
+
       <div id="right-spacer" className="spacer"></div>
     </header>
   );

@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import "./SongCard.css";
 
 function SongCard({ song }: { song: { title: string; coverUrl: string } }) {
   return (
-    <a
-      href={`/songs/${encodeURIComponent(song.title.toLowerCase())}`}
+    <Link
+      to={`/songs/${encodeURIComponent(song.title.toLowerCase())}`}
       className="song-card"
     >
       <div className="song-cover-wrapper">
@@ -13,7 +14,7 @@ function SongCard({ song }: { song: { title: string; coverUrl: string } }) {
       <div className="song-info">
         <h3 className="song-title">{song.title}</h3>
       </div>
-    </a>
+    </Link>
   );
 }
 
