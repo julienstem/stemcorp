@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { MusicType } from "../../type/musicType";
 import getSongUrl from "../../utils/urlManager";
 import "./song.css";
@@ -12,9 +13,9 @@ function Song({ title, coverUrl, type }: SongProps) {
   const pageUrl = getSongUrl(title, type);
   return (
     <div>
-      <a href={pageUrl} className="song-link" title={title}>
+      <Link to={pageUrl} className="song-link" title={title}>
         <img src={coverUrl} alt={title} className="song-cover" />
-      </a>
+      </Link>
     </div>
   );
 }
