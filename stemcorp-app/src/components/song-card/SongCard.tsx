@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import "./SongCard.css";
+import type { Music } from "../../type/musicType";
+import getSongUrl from "../../utils/urlManager";
 
-function SongCard({ song }: { song: { title: string; coverUrl: string } }) {
+interface SongCardProps {
+  song: Music;
+}
+
+function SongCard({ song }: SongCardProps) {
   return (
-    <Link
-      to={`/songs/${encodeURIComponent(song.title.toLowerCase())}`}
-      className="song-card"
-    >
+    <Link to={getSongUrl(song.title, song.type)} className="song-card">
       <div className="song-cover-wrapper">
         <img src={song.coverUrl} alt={song.title} className="song-cover" />
       </div>
