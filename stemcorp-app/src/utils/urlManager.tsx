@@ -7,7 +7,7 @@ export default function getSongUrl(
   parentType?: string,
 ): string {
   if (parentTitle && parentType) {
-    return `/stemcorp/songs/${parentType.toLowerCase()}/${parentTitle.toLowerCase()}/${type.toLowerCase()}/${title.toLowerCase()}`;
+    return `/songs/${parentType.toLowerCase()}/${parentTitle.toLowerCase()}/${type.toLowerCase()}/${title.toLowerCase()}`;
   }
-  return `/stemcorp/songs/${type.toLowerCase()}/${title.toLowerCase()}`;
+  return `/songs/${type.toLowerCase()}/${title.toLowerCase()}`;
 }
