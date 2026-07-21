@@ -1,16 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import './index.css'
-import App from './App.tsx'
-import { MusicProvider } from './context/MusicContext.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, HashRouter } from "react-router-dom";
+import "./index.css";
+import App from "./App.tsx";
+import { MusicProvider } from "./context/MusicContext.tsx";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <MusicProvider> 
-        <App />
-      </MusicProvider>
-    </BrowserRouter>
+    <HashRouter>
+      <BrowserRouter>
+        <MusicProvider>
+          <App />
+        </MusicProvider>
+      </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
-)
+);
