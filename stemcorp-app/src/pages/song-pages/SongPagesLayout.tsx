@@ -8,6 +8,7 @@ import { SiYoutubemusic } from "react-icons/si";
 import { FaSoundcloud } from "react-icons/fa";
 import getSongUrl from "../../utils/urlManager";
 import { formatTrackName } from "../../utils/formatter";
+import { Link } from "react-router-dom";
 
 interface SongPagesLayoutProps {
   song: Music;
@@ -39,15 +40,15 @@ export const SongPagesLayout: React.FC<SongPagesLayoutProps> = ({ song }) => {
         </div>
         <div className="platforms">
           {Object.entries(song.platforms).map(([platform, url]) => (
-            <a
+            <Link
               key={platform}
-              href={url}
+              to={url}
               target="_blank"
               rel="noopener noreferrer"
               className="platform-link"
             >
               {platformIcons[platform.toLowerCase()] || platform}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
@@ -84,8 +85,8 @@ const TrackListDiv: React.FC<TrackListDivProps> = ({ parent }) => {
         {tracks.map((track, index) => {
           track = formatTrackName(track);
           return (
-            <a
-              href={getSongUrl(
+            <Link
+              to={getSongUrl(
                 track,
                 MusicType.SINGLE,
                 parent.title,
@@ -95,7 +96,7 @@ const TrackListDiv: React.FC<TrackListDivProps> = ({ parent }) => {
               className="track"
             >
               {track}
-            </a>
+            </Link>
           );
         })}
       </div>
