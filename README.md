@@ -20,10 +20,10 @@ yarn dev
 ```
 
 ## Licence
-The code is open source you can fork and reuse it as you wish.
-
-The music answers the Licence Creative Commons CC BY-NC-SA 4.0
-You can download, share and listen to it as you wish and freely that is the beauty of music.
-Using it for comercial use is strictly forbidden.
-Ask me for sample clearance but i will probably say yes.
-DO NOT train your AI with it, learn how to do music its not that hard.
+The code is open source you can fork and reuse it as you wish.  
+  
+The music answers the Licence Creative Commons CC BY-NC-SA 4.0  
+You can download, share and listen to it as you wish and freely that is the beauty of music.  
+Using it for comercial use is strictly forbidden.  
+Ask me for sample clearance but i will probably say yes.  
+DO NOT train your AI with it, learn how to do music its not that hard.  
