@@ -2,7 +2,6 @@
 title: "Stemcorp"
 description_fr: "Site pour Stemcorp. Contient l'intégralité du catalogue musicale avec les paroles des liens dynamiques vers les plateformes de distribution ainsi que les réseaux sociaux et les informations de contacte."
 description_eng: "Website for Stemcorp. Contains the full music catalog with links distribution platforms and lyrics as well as socials and contacts"
-featured: true
 ---
 
 # Stemcorp
