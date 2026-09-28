@@ -1,0 +1,8 @@
+.download-zip-button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  color: var(--highlighted-text-color);
+  cursor: pointer;
+}

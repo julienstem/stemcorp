@@ -9,6 +9,8 @@ import { FaSoundcloud } from "react-icons/fa";
 import getSongUrl from "../../utils/urlManager";
 import { formatTrackName } from "../../utils/formatter";
 import { Link } from "react-router-dom";
+import { AiOutlineDownload } from "react-icons/ai";
+import DownloadZipButton from "../download-zip--button/download-zip-button";
 
 interface SongPagesLayoutProps {
   song: Music;
@@ -50,6 +52,9 @@ export const SongPagesLayout: React.FC<SongPagesLayoutProps> = ({ song }) => {
               {platformIcons[platform.toLowerCase()] || platform}
             </Link>
           ))}
+          <DownloadZipButton music={song}>
+            <AiOutlineDownload className="platform-icon"></AiOutlineDownload>
+          </DownloadZipButton>
         </div>
       </div>
       <div className="bottom-section">{renderBottomSection(song)}</div>
@@ -112,5 +117,4 @@ const renderBottomSection = (song: Music): JSX.Element | null => {
   } else {
     return <p className="no-lyrics">Pas de paroles disponibles.</p>;
   }
-  return null;
 };

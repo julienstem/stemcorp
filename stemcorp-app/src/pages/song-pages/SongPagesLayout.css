@@ -6,11 +6,6 @@
   align-items: center;
 }
 
-.platform-icon {
-  width: 15px;
-  height: 15px;
-}
-
 .main-data {
   display: flex;
   flex-direction: column;
@@ -90,6 +85,7 @@ h2 {
 .platform-icon {
   width: 30px;
   height: 30px;
+  color: var(--highlighted-text-color);
 }
 
 .track {
@@ -130,4 +126,13 @@ h2 {
   white-space: pre-line; /* Conserve les sauts de ligne naturels des paroles s'il y en a */
   overflow-wrap: break-word; /* Force le texte à se couper si un mot est trop long */
   word-break: break-word; /* Sécurité supplémentaire pour les anciens navigateurs */
+}
+
+.download-song-button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  color: var(--highlighted-text-color);
+  cursor: pointer;
 }
