@@ -10,7 +10,7 @@ import getSongUrl from "../../utils/urlManager";
 import { formatTrackName } from "../../utils/formatter";
 import { Link } from "react-router-dom";
 import { AiOutlineDownload } from "react-icons/ai";
-import DownloadZipButton from "../download-zip--button/download-zip-button";
+import DownloadZipButton from "../../components/download-zip-button/download-zip-button";
 
 interface SongPagesLayoutProps {
   song: Music;
