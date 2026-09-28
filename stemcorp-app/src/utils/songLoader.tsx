@@ -20,7 +20,7 @@ async function MusicLoader(): Promise<Music[]> {
     as: "raw",
   });
 
-  const songsMap = new Map<string, string[]>();
+  const songsMap = new Map<string, Map<string, string>>();
   const coverMap = new Map<string, string>();
   const typeMap = new Map<string, MusicType>();
   const lyricsMap = new Map<string, string>();
@@ -32,7 +32,7 @@ async function MusicLoader(): Promise<Music[]> {
     const name = parts.pop()?.replace(".flac", "").trim() || "Unknown";
 
     if (!songsMap.has(projectName)) {
-      songsMap.set(projectName, []);
+      songsMap.set(projectName, new Map<string, string>());
       const type = path.includes("/album/")
         ? MusicType.ALBUM
         : path.includes("/ep/")
@@ -40,7 +40,8 @@ async function MusicLoader(): Promise<Music[]> {
           : MusicType.SINGLE;
       typeMap.set(projectName, type);
     }
-    songsMap.get(projectName)?.push(name);
+    const fileUrl = (songsDir[path] as any).default || songsDir[path];
+    songsMap.get(projectName)?.set(name, fileUrl);
   }
 
   for (const path in coverDir) {
@@ -60,15 +61,21 @@ async function MusicLoader(): Promise<Music[]> {
   }
 
   for (const projectName of songsMap.keys()) {
-    const songs = songsMap.get(projectName) || [];
+    const songs = songsMap.get(projectName);
+    if (songs === undefined) {
+      return [];
+    }
     const coverUrl = coverMap.get(projectName) || "";
     const type = typeMap.get(projectName) || MusicType.SINGLE;
-    const tracksName = songs.sort((a, b) =>
-      a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }),
-    );
-    const tracks = tracksName.map((trackName): Track => {
-      return { name: trackName, lyrics: lyricsMap.get(trackName) };
-    });
+    const tracks: Track[] = [...songs.entries()]
+      .sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+      .map(
+        ([key, value]): Track => ({
+          name: key,
+          lyrics: lyricsMap.get(key),
+          fileUrl: value,
+        }),
+      );
 
     const metaPath = Object.keys(metadataFiles).find((path) =>
       path.includes(`/${projectName}/`),

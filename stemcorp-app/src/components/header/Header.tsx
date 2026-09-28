@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo_big from "../../assets/seraphin stemcorp.png";
+import logo_big from "/seraphin stemcorp.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";

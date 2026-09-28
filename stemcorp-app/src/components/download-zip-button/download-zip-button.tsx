@@ -22,10 +22,11 @@ export default function DownloadZipButton({
   ];
   music.tracks.forEach((track: Track) => {
     filesToZip.push({
-      url: `/src/assets/music/${music.type.toLowerCase()}/${music.title}/songs/${track.name}.flac`,
-      name: `${track.name}.flac`,
+      url: track.fileUrl,
+      name: track.name + ".flac",
     });
   });
+  console.log(filesToZip);
 
   const handleDownload = async () => {
     setLoading(true);

@@ -11,6 +11,7 @@ export type MusicType = (typeof MusicType)[keyof typeof MusicType];
 export interface Track {
   lyrics?: string;
   name: string;
+  fileUrl: string;
 }
 
 export interface Music {
