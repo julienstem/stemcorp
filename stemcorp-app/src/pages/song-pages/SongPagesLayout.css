@@ -127,12 +127,3 @@ h2 {
   overflow-wrap: break-word; /* Force le texte à se couper si un mot est trop long */
   word-break: break-word; /* Sécurité supplémentaire pour les anciens navigateurs */
 }
-
-.download-song-button {
-  padding: 0;
-  margin: 0;
-  background: none;
-  border: none;
-  color: var(--highlighted-text-color);
-  cursor: pointer;
-}
